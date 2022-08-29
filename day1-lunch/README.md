@@ -63,15 +63,17 @@ grep AFR integrated_call_samples.panel | cut -f 2 | sort | uniq -c
  206 YRI
 
 c. I would use the grep function for the other super populations, and keep the remaining code the same
-
 5. 
 a. 
 cp random_snippet.vcf ~/qbb2022-answers/day1-lunch/
 
-cut -f 10 HG00100.txt | sort | uniq -c
- 79 0|0
-   1 1|1
+cut -f 1-9,13 random_snippet.vcf > HG00100.vcf
 
+grep -v "#" HG00100.vcf | cut -f 10 | sort | uniq -c
+9514 0|0
+ 127 0|1
+ 178 1|0
+ 181 1|1
 
 
 
