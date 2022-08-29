@@ -75,6 +75,14 @@ grep -v "#" HG00100.vcf | cut -f 10 | sort | uniq -c
  178 1|0
  181 1|1
 
+d.
+grep "AF=1" HG00100.vcf | wc -l
+      34
+
+e. once
+
+f. 
+grep -v "#" HG00100.vcf | cut -f 7 | sort | uniq -c | grep 'AFR'
 
 
 
