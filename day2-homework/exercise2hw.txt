@@ -8,7 +8,9 @@ dbsnp = parse_vcf("dbSNP_snippet.vcf") #loads dbsnp into vcf parser
 
 #key is position, value is ID
 fs=open("dbsnp_snippet.vcf",'r') #creates variable that will open dbsnp file
+fss=open("random_snippet.vcf",'r') #creates variable that will open random snippet file
 snp_dict = {} #creates snp dictionary
+rsnp_dict = {} #creates random snippet dictionary
 for line in fs: #reads dbsnp file line by line
 	if line.startswith("#"):
 		continue #skips header
@@ -19,22 +21,37 @@ for line in fs: #reads dbsnp file line by line
 		ident = fields[2] #saved ID as 'ident'
 		snp_dict[position]=ident #creates snp dictionary using position as key and ID as value
 		#print(snp_dict)
-
-fss=open("random_snippet.vcf",'r') #creates variable that will open random snippet file
-rsnp_dict = {} #creates random snippet dictionary
-for line in fss: #reads random snippet file line by line
-	if line.startswith("#"):
- 		continue #skips header
+		for line in fss: 
+			if line.startswith("#"):
+		 		continue #skips header
 	
-	else:
-		rfields = line.strip().split('\t') #separates into list whereever there's a tab
-		rfields[1] = int(rfields[1]) #converts position into integer
-		if rfields[1] == fields[1]: #if random snippet position is the same as dbsnp position
-			rfields[2] = fields[2] #store dbsnp ID as random snippet ID
-		rposition = rfields[1] #random snippet position saved as 'rposition'
-		rident = rfields[2] #random snippet ID saved is 'rident
-		rsnp_dict[rposition]=rident #creates random snippet dictionary using position as key and ID as value
-		if rident != '.': #if the random snippet ID was altered
-			print(rsnp_dict) #print the dictionary
-			print(len(rsnp_dict))
+			else:
+				rfields = line.strip().split('\t') #separates into list whereever there's a tab
+				rfields[1] = int(rfields[1]) #converts position into integer
+				if rfields[1] == fields[1]: #if random snippet position is the same as dbsnp position
+					rfields[2] = fields[2] #store dbsnp ID as random snippet ID
+				rposition = rfields[1] #random snippet position saved as 'rposition'
+				rident = rfields[2] #random snippet ID saved is 'rident
+				rsnp_dict[rposition]=rident #creates random snippet dictionary using position as key and ID as value
+				if rident != '.': #if the random snippet ID was altered
+					print(rsnp_dict) #print the dictionary
+					print(len(rsnp_dict))
+
+#fss=open("random_snippet.vcf",'r') #creates variable that will open random snippet file
+#rsnp_dict = {} #creates random snippet dictionary
+#for line in fss: #reads random snippet file line by line
+#	if line.startswith("#"):
+ #		continue #skips header
+	
+#	else:
+#		rfields = line.strip().split('\t') #separates into list whereever there's a tab
+#		rfields[1] = int(rfields[1]) #converts position into integer
+#		if rfields[1] == fields[1]: #if random snippet position is the same as dbsnp position
+#			rfields[2] = fields[2] #store dbsnp ID as random snippet ID
+#		rposition = rfields[1] #random snippet position saved as 'rposition'
+#		rident = rfields[2] #random snippet ID saved is 'rident
+#		rsnp_dict[rposition]=rident #creates random snippet dictionary using position as key and ID as value
+#		if rident != '.': #if the random snippet ID was altered
+#			print(rsnp_dict) #print the dictionary
+#			print(len(rsnp_dict))
 		
