@@ -1,0 +1,3 @@
+# Feedback - day2 lunch
+
+Overall, this code looks good. I like your way of splitting lines 8, 10, and 12 without needing to check the range of fields. There are a couple of additional checks that this parser should do. You don'nt currently check that fields[8] contains 3 values or a 0, and you don't check if fields[10] and fields[11] have a number of elements equal to the value of fields[9]. Finally, for fields[4], you need to make sure it isn't "." before converting to a float. More commenting would be nice for reading and understanding your code. However, you appear to be well on your way. Keep up the good work!
