@@ -1,3 +1,3 @@
 # QBB2022 - Day 2 - Homework Excercises Submission
 
-2. 1 labeled record, 9865 unlabeled
+2. 100 unlabeled records after merging random_snippet and dbsnp
