@@ -1,0 +1,3 @@
+# Feedback day3-homework
+
+Overall this looks good. Your PCA1 vs. PCA2 plot and your plots colored by metadata all look correct. Just a couple of points. First, you don't include any of the scripts you used for plotting so I can't give you any feedback on that. Your PCA1 vs. PCA3 plot appears to be using PCA2 instead of PCA3 for the Y data. Also, it would be useful to play around with formatting to ensure that your legends are visible but not covering your data. That being said, it looks like you were able to complete the assignment without issue. Just make sure to show your work (and code) next time. Keep up the good work!
