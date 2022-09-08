@@ -1,3 +1,12 @@
+Exercise 1
+python exercise1day5.txt | sort -k 5 > aau1043_dnm_sorted.csv
+
+python exercise1day5b.txt > aau1043_parental_sorted.csv
+
+join aau1043_dnm_sorted.csv /Users/cmdb/qbb2022-answers/aau1043_parental_age.csv 
+
+
+
 Exercise 2
 2. 
 The relationship between maternal age and maternally inherited de novo mutations is statistically significant. 

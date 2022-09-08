@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+
+import numpy as np
+import matplotlib.pyplot as plt
+import statsmodels.formula.api as smf
+import statsmodels.api as sm #for nnova
+from scipy import stats
+
+df = np.genfromtxt("motherfather_counts", delimiter = ",", dtype = None, encoding = None, names = ["id" "m_count" "mother" "f_count" "father])
+
