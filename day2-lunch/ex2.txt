@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+from debug import parse_bed
+#parse_bed("hg38_gencodev41_chr21.bed")
+
+e2 = parse_bed("hg38_gencodev41_chr21.bed")
+#print(e2)
+# print(e2.readlines(9))
+# import os
+# column10 = [i.split('\t') os.popen('cut -f 10 hg38_gencodev41_chr21.bed').readlines()]
+# print(column10)
+
+exons = []
+for line in e2:
+    exons.append(line[9])
+exons.sort()
+print(exons[1636])
+#len(exons)/2 = 1636
+#print(exons)
+
+#print(type(e2[0]))
+    
+#print(e2[9])
+#print(e2)
+
+
+#exons = column 10 
+#get median 
+#sort, exons[len(exons)/2]
+#can use for division which is //
