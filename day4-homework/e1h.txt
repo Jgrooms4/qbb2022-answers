@@ -1,0 +1,21 @@
+def run_experimenta(prob_heads, n_toss, n_iters = 100, seed = 389, correct_the_pvalues = False):
+	tosses = numpy.array([10, 50, 100, 250, 500, 1000])
+	probs = numpy.around(numpy.arange(0.55, 1.05, 0.05), decimals=2)[::-1]
+	numpy.random.seed(seed)
+	pvals = []
+	power_mat = numpy.zeros((6,10))
+	for j, ntoss in enumerate(tosses):
+		for k, nprobs in enumerate(probs):
+			for k in range(n_iters):
+				results_arr = simulate_coin_toss(ntoss, prob_heads = nprobs)
+				n_success = numpy.sum(results_arr)
+				pvals.append(perform_hypothesis_test(n_success, n_toss))
+			if correct_the_pvalues:
+				pvals = correct_pvalues(pvals)
+			pvals_translated_to_bools = interpret_pvalues(pvals)
+			power = compute_power(numpy.sum(pvals_translated_to_bools), n_iters)
+			return(power)
+			power_mat[j, k] = power
+	
+	return(power_mat)	
+print(power_mat)
