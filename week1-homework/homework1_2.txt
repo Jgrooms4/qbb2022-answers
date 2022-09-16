@@ -1,0 +1,47 @@
+# 1.1
+# 5 x 1,000,000 / 100 = 50,000
+# 15 x 1,000,000 / 100 = 150,000
+#
+# 1.2
+# 22 lines of python
+
+import sys
+import matplotlib.pyplot as plt
+import numpy
+from scipy.stats import poisson
+
+list = [0] * 1000000
+#print(list)
+
+# for i, reads in enumerate(list):
+# 	numpy.random.randint(100, 999900)
+	
+
+# No sequence needed, just coverage.
+# 1M bp genome. vector contains 1M 0s.
+# Use Random number generator. that's the simulated start of the read. increment reads +1. what was one now gets incremented to 2s.
+# Initialize 1m 0s. Repeatedly throw darts - for loop (random number, increment next 100 slots) for length of read (100) increment +1
+# numpy to create histogram
+#
+
+reads = 150000
+for i in range(reads):
+    start = numpy.random.randint(100, 999900)
+    for j in range(start, start+100):
+        list[j] += 1
+#print(list)
+
+fig, ax = plt.subplots()
+x = numpy.arange(0, 35, 1)
+y = poisson.pmf(x, 15)*1000000
+
+ax.hist(list)
+ax.plot(x, y, label = "Poisson")
+plt.ylabel("# of bps")
+plt.xlabel("Count")
+plt.title("bp counts")
+plt.savefig("SequencingCounts2")
+plt.show()
+
+print(scipy.stats.poisson.pmf)
+# 2. 3. 4.
