@@ -9,6 +9,13 @@ join aau1043_dnm_sorted.csv /Users/cmdb/qbb2022-answers/aau1043_parental_age.csv
 
 Exercise 2
 2. 
+
+cut -d"," -f 5,6 ~/qbb2022-answers/aau1043_dnm.csv | grep "father" | tr , '\t' | sort -k 1 | uniq -c >> father_counts.txt
+
+sed -i '' 's/,/\t/g' father_counts.txt 
+
+cut -d"," -f 5,6 ~/qbb2022-answers/aau1043_dnm.csv | grep "mother" | tr , '\t' | sort -k 1 | uniq -c >> mother_counts2.txt
+
 The relationship between maternal age and maternally inherited de novo mutations is statistically significant. 
 The size of this relationship is 0.3776. 
 The relationship between  paternal age and paternally inherited de novo mutations is statistically significant. 
