@@ -1,0 +1,51 @@
+#Week 4
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# pcaa = np.genfromtxt("/users/cmdb/qbb2022-answers/week4-hw/answers/gwas_data/plink.eigenvec", dtype = None, encoding = None, names=['Family_ID', 'Sample_ID', 'PC1', 'PC2', 'PC3', 'PC4', 'PC5', 'PC6', 'PC7', 'PC8', 'PC9', 'PC10', 'PC11', 'PC12', 'PC13', 'PC14', 'PC15', 'PC16', 'PC17', 'PC18', 'PC19', 'PC120'])
+# #print(pcaa)
+#
+# fig, ax = plt.subplots()
+# ax.scatter(pcaa['PC1'], pcaa['PC2'])
+# ax.set_xlabel("PC1")
+# ax.set_ylabel("PC2")
+# fig.savefig("PC1vsPC2.png")
+# #plt.show()
+
+# pcaa = np.genfromtxt("/users/cmdb/qbb2022-answers/week4-hw/answers/gwas_data/plink.frq", dtype = None, encoding = None, names = True)
+# fig, ax = plt.subplots()
+# ax.hist(pcaa['MAF'])
+# ax.set_xlabel("Minor AF")
+# ax.set_ylabel("Count")
+# fig.savefig("SNP_Allele_Frequencies.png")
+# #plt.show()
+
+neglogp = []
+veryneglogp = []
+totalsnps = 0
+
+for a, b in enumerate(open(f"/users/cmdb/qbb2022-answers/week4-hw/answers/gwas_data/CB1908_IC50_results.txt.assoc.linear")):
+	fields = b.strip().split()
+	if a == 0: 
+		continue
+	chrom = int(fields[0])
+	position = int(fields[2])
+	pvals = float(fields[8])
+	logp = -1*np.log10(pvals)
+	totalsnps+=1
+	neglogp.append(logp)
+	if logp >=5: 
+		veryneglogp.append('magenta')
+	else: 
+		veryneglogp.append('green')
+
+x_count = [x for x in range(totalsnps)]
+
+fig, ax = plt.subplots()
+ax.scatter(x = x_count, y = neglogp, color = veryneglogp, s=0.5)
+plt.title("Manhattan Plot CB1908")
+ax.set_ylabel("-log10(p)")
+ax.set_xlabel("SNPs")
+plt.savefig("cbmanhattanplot.png")
+plt.show()
