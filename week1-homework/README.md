@@ -74,13 +74,10 @@ TCTTGCATAAGGCCTCTCTTACGAGCTGAGTGCACGAACCACGGAACAGCTTAGTCACTT
 AGAAGAGTACTCTATTCGGGACTTGAAGTACGCGTGCAATCGGGAACTAGTG
 
 4.4
-samtools faidx /users/cmdb/qbb2022-answers/week1-homework/SPAdes-3.15.5-Darwin/bin/asm/contigs.fasta NODE_3_length_41351_cov_20.528098:26787-27498 > contiginsert.fasta
+samtools faidx /users/cmdb/qbb2022-answers/week1-homework/SPAdes-3.15.5-Darwin/bin/asm/contigs.fasta NODE_3_length_41351_cov_20.528098:26788-27497 > contiginsert.fasta
 
 ./dna-decode.py --decode -input contiginsert.fasta 
-Traceback (most recent call last):
-  File "/Users/cmdb/qbb2022-answers/week1-homework/./dna-decode.py", line 8, in <module>
-    import numpy as np
-ModuleNotFoundError: No module named 'numpy'
+The decoded message :  Congratulations to the 2022 CMDB @ JHU class!  Keep on looking for little green aliens.
 
-#not sure why I can't decode the message
+
 
